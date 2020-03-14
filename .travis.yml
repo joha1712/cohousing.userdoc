@@ -2,14 +2,13 @@
    addons:
      snaps:
        - hugo
-       
+
 env:
   global:
     - TRAVIS_PACKAGE_VERSION="0.1.$TRAVIS_BUILD_NUMBER"
     - TRAVIS_PACKAGE_FILE="$TRAVIS_BUILD_DIR/package_v$TRAVIS_PACKAGE_VERSION.zip"
     - SURGE_LOGIN=$SURGE_RELEASELOGIN
-    - SURGE_TOKEN=$SURGE_RELEASETOKEN
-    - BASEAPI_URL=$BASEAPI_URL
+    - SURGE_TOKEN=$SURGE_RELEASETOKEN    
     
 # blacklist
 branches:
