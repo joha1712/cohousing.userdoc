@@ -1,7 +1,7 @@
- dist: xenial
-   addons:
-     snaps:
-       - hugo
+dist: xenial
+  addons:
+    snaps:
+      - hugo
 
 env:
   global:
