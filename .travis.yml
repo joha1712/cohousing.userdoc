@@ -1,7 +1,11 @@
+language: node_js
+os: linux
 dist: xenial
-  addons:
-    snaps:
-      - hugo
+addons:
+  snaps: hugo
+
+node_js:
+  - 10.16.3
 
 env:
   global:
@@ -27,7 +31,6 @@ deploy:
   - provider: surge
     project: ./dist/
     domain: https://buske-doc.surge.sh
-    skip_cleanup: true
     on:      
       branch: master      
 after_deploy:
