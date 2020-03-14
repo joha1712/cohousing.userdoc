@@ -1,0 +1,35 @@
+ dist: xenial
+   addons:
+     snaps:
+       - hugo
+       
+env:
+  global:
+    - TRAVIS_PACKAGE_VERSION="0.1.$TRAVIS_BUILD_NUMBER"
+    - TRAVIS_PACKAGE_FILE="$TRAVIS_BUILD_DIR/package_v$TRAVIS_PACKAGE_VERSION.zip"
+    - SURGE_LOGIN=$SURGE_RELEASELOGIN
+    - SURGE_TOKEN=$SURGE_RELEASETOKEN
+    - BASEAPI_URL=$BASEAPI_URL
+    
+# blacklist
+branches:
+  except:
+    - /untagged-.*/
+
+notifications:
+  email:
+    on_success: always
+    on_failure: always
+
+before_deploy:  
+  - hugo
+  - cd dist && zip -rv9 $TRAVIS_PACKAGE_FILE . && cd ..
+deploy:
+  - provider: surge
+    project: ./dist/
+    domain: https://buske-doc.surge.sh
+    skip_cleanup: true
+    on:      
+      branch: master      
+after_deploy:
+  - rm $TRAVIS_PACKAGE_FILE

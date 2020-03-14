@@ -1,0 +1,25 @@
+baseURL: http://example.org/
+languageCode: da
+title: Fællesspisning
+theme: cupper-hugo-theme
+
+publishDir: dist
+
+params:
+  description: Fællesspisningssystemet
+  footer: Gratis / Opensource kildekode findes på [github](https://github.com/joha1712/cohousing.website).
+
+menu:
+  nav:
+    - name: Hjem
+      url: /
+      weight: 1
+    - name: Madplan
+      url: /commonmeal.html
+      weight: 2
+    - name: Opgørelse
+      url: /overview.html
+      weight: 3
+    - name: Om
+      url: /about.html
+      weight: 4
